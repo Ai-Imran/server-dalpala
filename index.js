@@ -56,9 +56,9 @@ run().catch(console.dir);
 
 
 app.get('/', (req,res) => {
-    res.send('SMAQW is running')
+    res.send('Dalpala is running')
 })
 
 app.listen(port, () => {
-    console.log(`SmaqW is running by ${port}`);
+    console.log(`Dalpala is running by ${port}`);
 })
