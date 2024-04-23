@@ -22,6 +22,19 @@ async function run() {
   try {
     await client.connect();
     const productsCollection = client.db("Dalpala").collection("products");
+    const buyingCollection = client.db("Dalpala").collection("buying");
+
+    app.post("/buying", async (req, res) => {
+      
+        const newBuying = req.body; // Get the new buying data from the request body
+        const result = await buyingCollection.insertOne(newBuying); // Insert the new buying data into the buying collection
+        res.send(result)
+    });
+    
+    app.get("/buying", async (req, res) => {
+      const result = await buyingCollection.find().toArray();
+      res.send(result);
+    });
 
     app.post("/products", async (req, res) => {
       const products = req.body;
